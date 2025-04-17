@@ -88,6 +88,10 @@ def execute_single_run(args):
             elif len(sorted_data) != len(data_copy):
                 error = f"Output size mismatch: expected {len(data_copy)}, got {len(sorted_data)}"
                 status = "Error"
+            elif sorted_data != sorted(data_copy):
+                error = "Incorrect sort output"
+                status = "Error"
+        
 
     except Exception as e:
         end_time = time.perf_counter() # Record time until error
